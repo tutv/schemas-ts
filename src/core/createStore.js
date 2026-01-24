@@ -3,7 +3,9 @@ const getConnection = require('../core/getConnection')
 
 
 const _validateOpts = (opts) => {
-    return Object.assign({}, opts)
+    return Object.assign({
+        models: {}//for cache
+    }, opts)
 }
 
 
