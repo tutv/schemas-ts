@@ -1,6 +1,6 @@
 {
   "name": "schemis",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Create Mongoose Schemas",
   "main": "index.js",
   "types": "index.d.ts",
@@ -20,9 +20,9 @@
   "homepage": "https://github.com/tutv/schemis#readme",
   "dependencies": {},
   "devDependencies": {
-    "mongoose": "^9.1.5"
+    "mongoose": "^9"
   },
   "peerDependencies": {
-    "mongoose": "^9.1.5"
+    "mongoose": "^9"
   }
 }
