@@ -1,18 +1,14 @@
-const Mongoose = require('mongoose')
+import mongoose, { ConnectOptions } from 'mongoose'
 
-
-module.exports = (uri, options) => {
+export const createConnection = (uri: string, options?: ConnectOptions) => {
     const vUri = uri ? uri.trim() : ''
     if (!vUri) {
         throw new Error('URI is required.')
     }
 
-    const defaultOpts = {
-        autoIndex: true,
-    }
-    const vOptions = Object.assign({}, defaultOpts, options)
+    const vOptions = { autoIndex: true, ...options }
 
-    const connection = Mongoose.createConnection(uri, vOptions)
+    const connection = mongoose.createConnection(uri, vOptions)
 
     connection.on('connected', () => {
         console.log('MongoDB is connected.')
@@ -34,10 +30,9 @@ module.exports = (uri, options) => {
         console.log('MongoDB is closed.')
     })
 
-    connection.on('error', (error) => {
+    connection.on('error', (error: Error) => {
         console.log('MongoDB is error.', error)
     })
 
     return connection
 }
-

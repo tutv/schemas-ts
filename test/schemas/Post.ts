@@ -1,4 +1,4 @@
-const {Schema} = require('mongoose')
+import { Schema } from 'mongoose'
 
 const PostSchema = new Schema({
     title: {
@@ -22,4 +22,4 @@ PostSchema.index({
     rank: 1
 })
 
-module.exports = PostSchema
+export default PostSchema
