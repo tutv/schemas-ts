@@ -5,9 +5,18 @@
   "description": "Create Mongoose Schemas",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": ">=20.11.0"
+  },
   "scripts": {
     "build": "tsc",
     "test": "npx tsx test/index.ts",
@@ -17,8 +26,14 @@
     "type": "git",
     "url": "git+https://github.com/tutv/schemis.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "mongoose",
+    "mongodb",
+    "schema",
+    "model",
+    "typescript"
+  ],
+  "author": "tutv",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tutv/schemis/issues"
