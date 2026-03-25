@@ -1,6 +1,6 @@
 {
   "name": "schemas-ts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "description": "Create Mongoose Schemas",
   "main": "dist/index.js",
@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tutv/schemis.git"
+    "url": "git+https://github.com/tutv/schemas-ts.git"
   },
   "keywords": [
     "mongoose",
@@ -36,9 +36,9 @@
   "author": "tutv",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tutv/schemis/issues"
+    "url": "https://github.com/tutv/schemas-ts/issues"
   },
-  "homepage": "https://github.com/tutv/schemis#readme",
+  "homepage": "https://github.com/tutv/schemas-ts#readme",
   "dependencies": {},
   "devDependencies": {
     "@types/node": "^25.5.0",
