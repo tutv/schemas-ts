@@ -1,25 +1,28 @@
-import 'dotenv/config'
+import assert from 'node:assert'
+import dotenv from 'dotenv'
 import path from 'path'
-import {fileURLToPath} from 'url'
 import {createStore, createConnection} from '../src/index.js'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
+dotenv.config({path: path.join(import.meta.dirname, '.env')})
 
-const uri = process.env.MONGODB_URI || 'mongodb://192.168.1.24:27017/test'
+const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/test'
 const connection = createConnection(uri)
 
 setImmediate(async () => {
     try {
-        const schemas = path.join(__dirname, 'schemas')
+        const schemas = path.join(import.meta.dirname, 'schemas')
         const {getModel} = createStore({connection, schemas})
         const Post = getModel('Post')
 
-        const post =  await Post.create({
+        const post = await Post.create({
             title: 'Hello world',
             rank: 1
         })
 
-        console.log('DOC', post.toJSON())
+        assert.strictEqual(post.title, 'Hello world', 'title should be "Hello world"')
+        assert.strictEqual(post.rank, 1, 'rank should be 1')
+
+        console.log('All assertions passed')
     } catch (error) {
         console.log('ERROR', (error as Error).message)
     }
