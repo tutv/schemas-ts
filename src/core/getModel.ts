@@ -11,7 +11,8 @@ const _getSchema = (dirPath: string, name: string): Schema => {
     if (_schemas[name]) return _schemas[name]
 
     const pathModel = path.join(dirPath, name)
-    _schemas[name] = require(pathModel)
+    const mod = require(pathModel)
+    _schemas[name] = mod.default || mod
 
     return _schemas[name]
 }
