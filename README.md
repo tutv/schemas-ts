@@ -69,6 +69,22 @@ const posts = await Post.find({ rank: { $gte: 1 } })
 const ArchivedPost = getModel('Post', 'archived_posts')
 ```
 
+### 4. Typed models with generics
+
+```ts
+interface IPost {
+    title: string
+    rank: number
+    created_at: Date
+}
+
+const Post = getModel<IPost>('Post')
+
+const post = await Post.create({ title: 'Hello', rank: 1 })
+post.title  // string
+post.rank   // number
+```
+
 ## API
 
 ### `createConnection(uri, options?)`
@@ -95,7 +111,7 @@ Creates a store that manages model loading and caching.
 
 | Method | Signature | Description |
 |--------|-----------|-------------|
-| `getModel` | `(modelName: string, collectionName?: string) => Model` | Load and cache a model by schema filename |
+| `getModel` | `<T = any>(modelName: string, collectionName?: string) => Model<T>` | Load and cache a typed model by schema filename |
 | `getConnection` | `() => Connection` | Get the underlying connection |
 
 ## License

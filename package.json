@@ -1,6 +1,6 @@
 {
   "name": "schemas-ts",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "type": "module",
   "description": "Create Mongoose Schemas",
   "main": "dist/index.js",
