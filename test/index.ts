@@ -60,6 +60,23 @@ setImmediate(async () => {
         assert.strictEqual(Post1, Post2, 'should return same model instance')
     })
 
+    await test('should return typed model with generic', async () => {
+        interface IPost {
+            title: string
+            rank: number
+            created_at: Date
+        }
+
+        const Post = getModel<IPost>('Post')
+        const post = await Post.create({title: 'Typed post', rank: 2})
+
+        const title: string = post.title
+        const rank: number = post.rank
+
+        assert.strictEqual(title, 'Typed post', 'title should be string "Typed post"')
+        assert.strictEqual(rank, 2, 'rank should be number 2')
+    })
+
     await test('should use custom collection name', () => {
         const PostCustom = getModel('Post', 'custom_posts')
         assert.ok(PostCustom, 'model with custom collection should be created')

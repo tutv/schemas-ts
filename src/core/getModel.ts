@@ -33,7 +33,7 @@ const _getModel = (
     return models[key]
 }
 
-export const getModel = (store: InternalStore) => (modelName = '', collectionName = ''): Model<any> => {
+export const getModel = (store: InternalStore) => <T = any>(modelName = '', collectionName = ''): Model<T> => {
     const name = (modelName || '').trim()
 
     if (!name) {

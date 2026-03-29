@@ -6,7 +6,7 @@ export interface StoreOptions {
 }
 
 export interface Schemis {
-    getModel: (modelName: string, collectionName?: string) => Model<any>
+    getModel: <T = any>(modelName: string, collectionName?: string) => Model<T>
     getConnection: () => Connection
 }
 
